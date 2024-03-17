@@ -47,6 +47,7 @@ import { highlightSpecialChars } from './highlight-special-chars'
 import { toolbarPanel } from './toolbar/toolbar-panel'
 import { geometryChangeEvent } from './geometry-change-event'
 import { docName } from '@/features/source-editor/extensions/doc-name'
+import { paragraphAnalysis } from './paragraph-analysis'
 
 const moduleExtensions: Array<() => Extension> = importOverleafModules(
   'sourceEditorExtensions'
@@ -117,6 +118,7 @@ export const createExtensions = (options: Record<string, any>): Extension[] => [
   search(),
   phrases(options.phrases),
   spelling(options.spelling),
+  paragraphAnalysis(),
   shortcuts,
   symbolPalette(),
   // NOTE: `emptyLineFiller` needs to be before `trackChanges`,
